@@ -690,7 +690,10 @@
             const firstDay = new Date(year, month, 1);
             const lastDay = new Date(year, month + 1, 0);
             const startDay = new Date(firstDay);
-            startDay.setDate(startDay.getDate() - firstDay.getDay());
+            // Начинаем неделю с понедельника (0 = воскресенье, 1 = понедельник)
+            const dayOfWeek = firstDay.getDay();
+            const daysToSubtract = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+            startDay.setDate(startDay.getDate() - daysToSubtract);
 
             let html = `
                 <div class="month-header">
@@ -701,8 +704,8 @@
                 <div class="calendar-grid">
             `;
 
-            // Заголовки дней недели
-            const dayNames = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+            // Заголовки дней недели (начинаем с понедельника)
+            const dayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
             dayNames.forEach(day => {
                 html += `<div class="day-header">${day}</div>`;
             });
