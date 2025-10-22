@@ -430,27 +430,181 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                margin: 0;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+            
             .controls {
                 flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .controls::before,
+            .controls::after {
+                display: none;
+            }
+            
+            .date-input {
+                width: 100%;
+                max-width: 300px;
+                font-size: 16px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 200px;
+                font-size: 14px;
+                padding: 12px 20px;
             }
             
             .month-header {
                 flex-direction: column;
                 gap: 15px;
+                padding: 0 10px;
+            }
+            
+            .month-title {
+                font-size: 1.4em;
+                text-align: center;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                max-width: 150px;
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+            
+            .calendar-grid {
+                gap: 1px;
+                font-size: 12px;
+            }
+            
+            .day-header {
+                padding: 8px 4px;
+                font-size: 11px;
             }
             
             .day {
-                min-height: 60px;
-                padding: 10px 5px;
+                min-height: 50px;
+                padding: 8px 4px;
             }
             
             .day-number {
-                font-size: 16px;
+                font-size: 14px;
+                margin-bottom: 2px;
             }
             
             .day-status {
+                font-size: 9px;
+                padding: 2px 4px;
+                border-radius: 8px;
+            }
+            
+            .legend {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                margin: 15px;
+            }
+            
+            .legend::before,
+            .legend::after {
+                display: none;
+            }
+            
+            .legend-item {
+                justify-content: center;
+                font-size: 14px;
+            }
+            
+            .legend-color {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .info-panel {
+                margin: 15px;
+                padding: 15px;
+            }
+            
+            .info-panel::before {
+                display: none;
+            }
+            
+            .info-panel h3 {
+                font-size: 1.2em;
+            }
+            
+            .info-panel p {
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .day {
+                min-height: 45px;
+                padding: 6px 2px;
+            }
+            
+            .day-number {
+                font-size: 12px;
+            }
+            
+            .day-status {
+                font-size: 8px;
+                padding: 1px 3px;
+            }
+            
+            .day-header {
+                padding: 6px 2px;
                 font-size: 10px;
-                padding: 2px 6px;
+            }
+            
+            .month-title {
+                font-size: 1.2em;
+            }
+            
+            .nav-btn {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .calendar-grid {
+                overflow-x: auto;
+            }
+            
+            .day {
+                min-width: 45px;
+                min-height: 40px;
+            }
+            
+            .day-header {
+                min-width: 45px;
             }
         }
     </style>
