@@ -18,6 +18,8 @@
             padding: 20px;
             position: relative;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body::before {
@@ -193,6 +195,8 @@
             background: #e9ecef;
             border-radius: 10px;
             overflow: hidden;
+            width: 100%;
+            max-width: 100%;
         }
 
         .day-header {
@@ -593,18 +597,105 @@
             }
         }
         
-        @media (max-width: 360px) {
+        @media (max-width: 414px) {
+            /* iPhone 13 и другие большие телефоны */
             .calendar-grid {
-                overflow-x: auto;
+                gap: 0.5px;
             }
             
             .day {
-                min-width: 45px;
-                min-height: 40px;
+                min-width: 42px;
+                min-height: 35px;
+                padding: 4px 2px;
             }
             
             .day-header {
-                min-width: 45px;
+                min-width: 42px;
+                padding: 6px 2px;
+                font-size: 10px;
+            }
+            
+            .day-number {
+                font-size: 11px;
+            }
+            
+            .day-status {
+                font-size: 7px;
+                padding: 1px 2px;
+            }
+        }
+        
+        @media (max-width: 390px) {
+            /* iPhone 12, 13 mini и другие */
+            .day {
+                min-width: 40px;
+                min-height: 32px;
+                padding: 3px 1px;
+            }
+            
+            .day-header {
+                min-width: 40px;
+                padding: 5px 1px;
+                font-size: 9px;
+            }
+            
+            .day-number {
+                font-size: 10px;
+            }
+            
+            .day-status {
+                font-size: 6px;
+                padding: 1px 1px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            /* iPhone SE и другие маленькие экраны */
+            .calendar-grid {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .day {
+                min-width: 38px;
+                min-height: 30px;
+                padding: 2px 1px;
+            }
+            
+            .day-header {
+                min-width: 38px;
+                padding: 4px 1px;
+                font-size: 8px;
+            }
+            
+            .day-number {
+                font-size: 9px;
+            }
+            
+            .day-status {
+                font-size: 5px;
+                padding: 0px 1px;
+            }
+        }
+        
+        /* Специально для Safari на iOS */
+        @supports (-webkit-touch-callout: none) {
+            @media (max-width: 414px) {
+                .calendar-grid {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-flex-wrap: wrap;
+                    -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                }
+                
+                .day, .day-header {
+                    -webkit-box-flex: 1;
+                    -ms-flex: 1 1 calc(14.28% - 1px);
+                    flex: 1 1 calc(14.28% - 1px);
+                    min-width: 0;
+                }
             }
         }
     </style>
